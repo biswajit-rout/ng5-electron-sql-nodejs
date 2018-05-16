@@ -10,12 +10,12 @@ class dbContext {
          this.dbConnection = connection;
      }
     connect(){
-        this.dbConnection = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "",
-            database: "nextgen_edunext"
-          });
+        // this.dbConnection = mysql.createConnection({
+        //     host: "localhost",
+        //     user: "root",
+        //     password: "",
+        //     database: "nextgen_edunext"
+        //   });
         this.dbConnection.connect(function (err) {
             if (err) throw err;
                 console.log("Database Connected!");

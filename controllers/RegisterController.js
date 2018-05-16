@@ -4,6 +4,7 @@ class RegisterController extends dbContext{
         super();
         this.dbRegister = this.dbConnection;
         this.disconnect();
+        this.val = "biswajit";
         
     }
 
