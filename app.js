@@ -6,6 +6,10 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dbContext = require('./db/dbContext');
+var RegisterController = require('./controllers/RegisterController');
+var newDbContext = new dbContext();
+newDbContext.connect();
 
 var app = express();
 
