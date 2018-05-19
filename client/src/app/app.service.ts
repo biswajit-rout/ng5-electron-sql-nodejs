@@ -12,7 +12,7 @@ export class AppService {
     constructor(private http:HttpClient) {}
  
     // Uses http.get() to load data from a single API endpoint
-    getData() {
-        return this.http.get(this.apiurl + '/api/register');
+    getData(data) {
+        return this.http.post(this.apiurl + 'api/register',data);
     }
 }

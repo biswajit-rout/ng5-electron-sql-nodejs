@@ -4,7 +4,7 @@
       </h1>
     <button (click)="lunchWindow()">Lunch Google</button>
   <div class="login-signup">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-sm-6 nav-tab-holder">
       <ul class="nav nav-tabs row" role="tablist">
         <li role="presentation" class="active col-sm-6"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Admin</a></li>
@@ -12,17 +12,55 @@
       </ul>
     </div>
 
-    </div>
+    </div> -->
 
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="home">
-        <div class="row">
+        <div class="row"> 
+            <div class="col-sm-6">
+                <article role="login"> 
+                  <h3 class="text-center"><i class="fa fa-lock"></i>USER</h3>
+                  <form class="signup" [formGroup]="loginForm" (submit)="onLoginSubmit()">
+                    <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="UserName" formControlName="name"  name="name">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  placeholder="Email Address" formControlName="email"  name="email">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Phone Number" formControlName="phone"  name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Please accept the terms and conditions to proceed with your request.
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" class="btn btn-success btn-block"  value="SUBMIT">
+                    </div>
+                  </form>
+    
+                  <footer role="signup" class="text-center">
+                    <ul>
+                      <li>
+                        <a href="#">Terms of Use</a>
+                      </li>
+                      <li>
+                        <a href="#">Privacy Statement</a>
+                      </li>
+                    </ul>
+                  </footer> 
+                </article>
+              </div>
 
           <div class="col-sm-6 mobile-pull">
             <article role="login">
               <h3 class="text-center"><i class="fa fa-lock"></i>USER</h3>
-              <form class="signup" action="index.html" method="post">
+              <form class="signup"  >
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="UserName">
                 </div>
@@ -62,25 +100,7 @@
               </footer>
 
             </article>
-          </div>
-
-          <div class="col-sm-6">
-            <article role="manufacturer"  class="text-center">
-              <header>
-                ADMIN
-              </header>
-              <h1>FREE</h1>
-              <ul class="text-left">
-                <li><i class="fa fa-check"></i>  Unlimited  access</li>
-                <li><i class="fa fa-check"></i>  Create Project Lists</li>
-                <li><i class="fa fa-check"></i>  Create Project Lists</li>
-                <li><i class="fa fa-check"></i>  Share Files</li>
-                <li><i class="fa fa-check"></i>   Unlimited  access</li>
-                <li><i class="fa fa-check"></i>  Unlimited  access</li>
-              </ul>
-              <a href="#" class="btn btn-success">SignUp  For Admin</a>
-            </article>
-          </div>
+          </div> 
 
         </div>
         <!-- end of row -->
@@ -93,7 +113,7 @@
         <div class="col-sm-6 mobile-pull">
           <article role="login">
             <h3 class="text-center"><i class="fa fa-lock"></i> Create User Account</h3>
-            <form class="signup" action="index.html" method="post">
+            <form class="signup" method="post">
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="UserName">
               </div>

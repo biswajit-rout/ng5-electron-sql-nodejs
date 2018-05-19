@@ -6,10 +6,10 @@ var RegisterController = require('../controllers/RegisterController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var newRegisterController = new RegisterController(); 
+  var newRegisterController = new RegisterController(req, res, next); 
 
-  var data = newRegisterController.val;
-  res.render('index', { title: 'Express'+ data });
+  //var data = newRegisterController.val;
+  //res.render('index', { title: 'Express'+ data });
 });
 
 module.exports = router;
