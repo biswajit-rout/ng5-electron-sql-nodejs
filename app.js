@@ -10,28 +10,31 @@ var dbContext = require('./db/dbContext');
 var newDbContext = new dbContext();
 newDbContext.connect();
 
-var app = express();
+var appserver = express();
+//Express setup
+const {app, BrowserWindow,remote} = require('electron'); 
+
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+appserver.set('views', path.join(__dirname, 'views'));
+appserver.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/api', usersRouter);
+appserver.use(logger('dev'));
+appserver.use(express.json());
+appserver.use(express.urlencoded({ extended: false }));
+appserver.use(cookieParser());
+appserver.use(express.static(path.join(__dirname, 'client/dist/')));
+console.log(__dirname+ '/client/dist/index.html');
+appserver.use('/', indexRouter);
+appserver.use('/api', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+appserver.use(function(req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+appserver.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -40,8 +43,24 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-// app.listen(3333,()=>{
-//   console.log("Listening on port 8080");
-// });
+appserver.listen(3000,()=>{
+  console.log("Listening on port 8080");
+});
 
-module.exports = app;
+app.on('ready', function() {
+  //express();
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 720,
+    autoHideMenuBar: true,
+    useContentSize: true,
+    resizable: false,
+  });
+  mainWindow.loadURL('http://localhost:3000/');
+  
+  
+  mainWindow.webContents.openDevTools();
+  mainWindow.focus();
+});
+
+module.exports = appserver;

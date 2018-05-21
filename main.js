@@ -2,12 +2,12 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 const server = require('./app');
-const { ipcRenderer } = require('electron'),
-spawn = require("child_process").spawn;
-//const app2 = require("electron").remote.app,
-node = spawn(".\\node.exe", ["./bin/www"], {
-  cwd: app.getAppPath()
-});
+// const { ipcRenderer } = require('electron'),
+// spawn = require("child_process").spawn;
+// //const app2 = require("electron").remote.app,
+// node = spawn(".\\node.exe", ["./bin/www"], {
+//   cwd: app.getAppPath()
+// });
   
 let win;
 function createWindow () {

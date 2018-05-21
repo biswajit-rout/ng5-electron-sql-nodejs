@@ -38,8 +38,9 @@
       "icon": "build/icon.ico"
     }
   },
-  "main": "main.js",
+  "main": "app.js",
   "dependencies": {
+    "child_process": "^1.0.2",
     "cookie-parser": "~1.4.3",
     "debug": "^2.6.9",
     "ejs": "~2.5.7",
